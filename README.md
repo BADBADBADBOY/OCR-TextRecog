@@ -3,8 +3,8 @@ useful text recognition algorithms, CRNN and SVTR text recognition
 
 ### Paper
 
-[CRNN](https://arxiv.org/abs/1507.05717) \n
-[SVTR](https://arxiv.org/abs/2205.00159)
+- [CRNN](https://arxiv.org/abs/1507.05717)
+- [SVTR](https://arxiv.org/abs/2205.00159)
 
 ### Evaluation DataSet
 
