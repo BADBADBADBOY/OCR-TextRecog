@@ -3,7 +3,7 @@ useful text recognition algorithms, CRNN and SVTR text recognition
 
 ### Paper
 
-[CRNN](https://arxiv.org/abs/1507.05717)
+[CRNN](https://arxiv.org/abs/1507.05717) \n
 [SVTR](https://arxiv.org/abs/2205.00159)
 
 ### Evaluation DataSet
@@ -22,13 +22,15 @@ The cosine learning rate scheduler with 5 epochs linear warm-up is used in all 1
 
 | algorithms | backbone | STN | Val ACC（scene_val） |Test ACC（scene_test）|
 | ------- | --------- | ------ | ----- | ----- |
-| CRNN  | repvgg   | Y   | 57.80|57.80|
+| CRNN  | vgg(paper)   | N  | - |53.4|
 | CRNN  | repvgg | N | 55.90 |55.87|
-| CRNN  | lcnet     | Y   | 0|0|
-| CRNN  | replcnet     | Y  | 0|0|
+| CRNN  | repvgg   | Y   | 57.80|57.80|
 | CRNN  | mobilev3    | Y   | 51.50|51.40|
 | CRNN  | repmobilev3 | Y   | 0|0|
+| CRNN  | lcnet     | Y   | 0|0|
+| CRNN  | replcnet     | Y  | 0|0|
 | SVTR  | Tiny(paper)     | Y  | -|67.90|
+| SVTR  | Tiny     | N | 63.01|62.86|
 | SVTR  | Tiny     | Y | 69.18|69.06|
 
 ### Reference Resources
