@@ -27,7 +27,7 @@ The cosine learning rate scheduler with 5 epochs linear warm-up is used in all 1
 | CRNN  | repvgg   | Y   | 57.80|57.80|
 | CRNN  | mobilev3    | Y   | 51.50|51.40|
 | CRNN  | repmobilev3 | Y   | 0|0|
-| CRNN  | lcnet     | Y   | 0|0|
+| CRNN  | lcnet     | Y   | 54.75|54.57|
 | CRNN  | replcnet     | Y  | 0|0|
 | SVTR  | Tiny(paper)     | Y  | -|67.90|
 | SVTR  | Tiny     | N | 63.01|62.86|
