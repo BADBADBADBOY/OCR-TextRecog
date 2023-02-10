@@ -1,0 +1,69 @@
+train:
+  algorithm: 'CRNN' 
+  data_root_train: ../scene ## lmdb数据的根目录
+  train_lmdb_file: ['scene_train'] #训练集lmdb名称地址和data_root_train一起使用
+  data_root_val: ../scene
+  val_lmdb_file: ['scene_val','scene_test'] #验证集lmdb名称地址和data_root_val一起使用
+  isVal: True
+  val_step: 2000
+  key_file: ./keyFile/keys.txt  # key文件地址
+  num_workers: 6 ## dataload的worker数
+  fixKeyON: False  ## 是否需要对key进行清洗，去除一些无用字符
+  fixKeytype: 'En'
+  use_tia: False ## 是否需要用tia 数据增强
+  ConAug: True
+  usel2loss: True
+  aug_prob: 0.4 ## 图片做数据增强的概率
+  imgH: 64   ## 图片的H，只能为32
+  imgW: 256  ## 图片的W，建议280，320
+  isGray: False ##是否用灰度图训练
+  alphabet: '' ## 训练用的key，这里默认即可，代码会根据key_file数据更改
+  nclass: 1000 ## 字符类别，这里默认即可，代码会根据key_file数据更改
+  epochs: 100 ## 训练的epoch数
+  warmepochs: 5 ## warm训练的epoch数
+  batch_size: 128 ## 训练的batch_size
+  show_iter: 50 ## 迭代多少次显示一次loss
+  save_dir: './checkpointFile'  ## 模型和log保存的地址
+  restore: False ## 是否开启断点继续训练
+  resume_file: './checkpointFile/modelFile/RepVGG-A0-epoch-154-wordAcc-0.94.pth' ### 断点继续训练所需加载的模型地址
+
+model:
+  backbone_function: models.backbones.repvgg,CreateBackboneModel
+#  head_function: models.heads.lstmHead,lstmHead
+  head_function: models.heads.convHead,convHead
+  optim_function: models.optimizer.optimizer,AdamWDecay
+  pretrained: False
+  backbone: 'RepVGG-A0' # RepVGG-A0,RepVGG-A1，RepVGG-A2，RepVGG-B0,RepVGG-B1，RepVGG-B2
+  scale : 1.0
+  nh: 256
+  headnum: 2
+  STN:
+    STN_ON: True
+    use_rep: False
+    tps_inputsize: [32, 64]
+    tps_outputsize: [32, 320]
+    num_control_points: 20
+    tps_margins: [0.05, 0.05]
+    stn_activation: None
+    stn_lr: 0.0005
+  
+optimizer:
+  optim_type: 'cos'
+  base_lr: 0.003
+  min_lr: 0.000001
+  momentum: 0.9
+  weight_decay: 0.05
+  beta1: 0.9
+  beta2: 0.99
+  eps: 8.e-8
+  alpha: 0 
+  amsgrad: False
+  gama: 0.1
+  schedule: [8,15,18]
+  no_weight_decay_param:
+    is_ON: False
+    param_names: ['pos_embed','norm']
+    weight_decay: 0.01
+
+infer:
+ model_file: './checkpointFile-repvgg-stn-0.003/modelFile/CRNN-step-114000-wordAcc-0.5780-chinese.pth'

@@ -26,12 +26,12 @@ The cosine learning rate scheduler with 5 epochs linear warm-up is used in all 1
 | CRNN  | RepVGG-A0 | N | 55.90 |55.87|
 | CRNN  | RepVGG-A0   | Y   | 57.80|57.80|
 | CRNN  | mobilev3    | Y   | 51.50|51.40|
-| CRNN  | repmobilev3 | Y   | 0|0|
+| CRNN  | repmobilev3 | Y   | 53.58|53.11|
 | CRNN  | lcnet     | Y   | 54.75|54.57|
 | CRNN  | replcnet     | Y  | 55.21|54.83|
 | SVTR  | Tiny(paper)     | Y  | -|67.90|
 | SVTR  | Tiny     | N | 63.01|62.86|
-| SVTR  | Tiny     | Y | 69.18|69.06|
+| SVTR  | Tiny     | Y | 70.42|70.13|
 
 ### Reference Resources
 - https://github.com/PaddlePaddle/PaddleOCR
